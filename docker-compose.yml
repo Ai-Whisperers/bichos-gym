@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    image: bichos-gym:prod
+    ports:
+      - "3000"
+    networks:
+      - agent-net
+    deploy:
+      mode: replicated
+      replicas: 2
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.bichos-gym.rule=Host(`bichos-gym.paragu-ai.com`)"
+        - "traefik.http.routers.bichos-gym.entrypoints=websecure"
+        - "traefik.http.routers.bichos-gym.tls=true"
+        - "traefik.http.routers.bichos-gym.tls.certresolver=letsencryptresolver"
+        - "traefik.http.services.bichos-gym.loadbalancer.server.port=3000"
+
+networks:
+  agent-net:
+    external: true
