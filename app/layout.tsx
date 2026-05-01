@@ -1,10 +1,17 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from "next"
+import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Bicho's Gym — Transformá tu Cuerpo en Capiatá",
   description: "Gimnasio completo, entrenadores certificados y el mejor ambiente para alcanzar tus metas fitness",
-};
+  icons: { icon: "/favicon.ico" },
+  openGraph: {
+    title: "Bicho's Gym — Transformá tu Cuerpo en Capiatá",
+    description: "Gimnasio completo, entrenadores certificados y el mejor ambiente para alcanzar tus metas fitness",
+    locale: "es_PY",
+    type: "website",
+  },
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -16,5 +23,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-body antialiased bg-background text-foreground">{children}</body>
     </html>
-  );
+  )
 }
