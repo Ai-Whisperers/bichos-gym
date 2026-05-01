@@ -10,7 +10,14 @@ export default function ServiciosPage() {
     <>
       <Header />
       <div className="pt-24"><Services /></div>
-      <Footer />
+      <Footer
+        businessName="Bicho's Gym"
+        tagline="Transformá tu Cuerpo en Capiatá"
+        address="Capiatá"
+        phone="0981 000 001"
+        hours="Lun-Sáb: 7:00 - 21:00, Dom: 9:00 - 13:00"
+        waPhone="595981000001"
+      />
       <WhatsAppFloat />
     </>
   );
